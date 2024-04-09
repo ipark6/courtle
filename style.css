@@ -1,11 +1,10 @@
 .opinion-zones {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 .opinion-zone {
-    display: flex;
-    flex-direction: column;
     margin-bottom: 20px;
 }
 
@@ -16,11 +15,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 10px; /* Adjust margin as needed */
 }
 
 .blank-squares {
     display: flex;
-    margin-top: 10px; /* Adjust margin as needed */
+    flex-wrap: wrap;
 }
 
 .blank-square {
@@ -28,5 +28,5 @@
     height: 20px; /* Adjust height as needed */
     background-color: #f0f0f0;
     border: 1px solid #333;
-    margin-right: 5px; /* Adjust margin as needed */
+    margin: 2px; /* Adjust margin as needed */
 }
