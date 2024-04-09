@@ -1,25 +1,31 @@
 {
   "cases": [
     {
-      "name": "Massachussets v. EPA",
-      "description": "Petitioners [have] asked us to answer two questions concerning the meaning of [the Clean Air Act]: whether EPA has the statutory authority to regulate greenhouse gas emissions from new motor vehicles; and if so, whether its stated reasons for refusing to do so are consistent with the statute.",
+      "name": "Massachusetts v. EPA",
+      "description": "Petitioners have asked us to answer two questions concerning the meaning of [the Clean Air Act]: whether EPA has the statutory authority to regulate greenhouse gas emissions from new motor vehicles; and if so, whether its stated reasons for refusing to do so are consistent with the statute.",
       "opinions": [
         {
           "type": "Opinion of the Court",
+          "text": "The Court's decision to grant authority to the EPA...",
           "author": "Stevens",
           "joinedBy": ["Kennedy", "Souter", "Ginsburg", "Breyer"]
         },
         {
           "type": "Dissent",
+          "text": "Disagreeing with the majority, Roberts argues...",
           "author": "Roberts",
           "joinedBy": ["Scalia", "Thomas", "Alito"]
         },
         {
           "type": "Dissent",
+          "text": "Echoing Roberts' concerns, Scalia adds...",
           "author": "Scalia",
           "joinedBy": ["Roberts", "Thomas", "Alito"]
         }
       ]
     }
+  ],
+  "justices": [
+    "Kennedy", "Souter", "Ginsburg", "Breyer", "Roberts", "Scalia", "Thomas", "Alito", "Stevens"
   ]
 }
