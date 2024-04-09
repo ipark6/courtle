@@ -27,12 +27,15 @@ function setupOpinionDropZones(caseData) {
         for (let i = 0; i < caseData.opinions.length; i++) {
             const blankSquare = document.createElement('div');
             blankSquare.classList.add('blank-square');
+            blankSquare.setAttribute('data-index', i); // Add index attribute to identify the position
             blankSquares.appendChild(blankSquare);
         }
         opinionZone.appendChild(blankSquares);
 
         opinionZones.appendChild(opinionZone);
     });
+
+    setupDragAndDrop(); // Setup drag-and-drop functionality after creating the elements
 }
 
 function initializeJustices(caseData) {
@@ -49,5 +52,44 @@ function initializeJustices(caseData) {
         justiceIcon.id = `justice${index + 1}`;
 
         justiceIcons.appendChild(justiceIcon);
+    });
+}
+
+function setupDragAndDrop() {
+    const draggables = document.querySelectorAll('.justice-icon');
+    const dropZones = document.querySelectorAll('.drop-zone');
+
+    draggables.forEach(draggable => {
+        draggable.addEventListener('dragstart', event => {
+            event.dataTransfer.setData('text/plain', draggable.id);
+            draggable.classList.add('dragging');
+        });
+
+        draggable.addEventListener('dragend', () => {
+            draggable.classList.remove('dragging');
+        });
+    });
+
+    dropZones.forEach(zone => {
+        zone.addEventListener('dragover', event => {
+            event.preventDefault();
+            zone.classList.add('active-drop-zone');
+        });
+
+        zone.addEventListener('dragleave', () => {
+            zone.classList.remove('active-drop-zone');
+        });
+
+        zone.addEventListener('drop', event => {
+            event.preventDefault();
+            const draggableId = event.dataTransfer.getData('text/plain');
+            const draggable = document.getElementById(draggableId);
+            const blankSquare = event.target.closest('.blank-square'); // Find the closest blank square
+            if (draggable && blankSquare) {
+                blankSquare.textContent = draggable.textContent; // Replace the text of the blank square
+                draggable.remove(); // Remove the dragged justice's name
+            }
+            zone.classList.remove('active-drop-zone');
+        });
     });
 }
