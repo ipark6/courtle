@@ -1,77 +1,32 @@
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Helvetica', Arial, sans-serif;
-    background-color: #f5f5f7;
-    color: #121213;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-}
-
-h1 {
-    margin: 20px 0;
-}
-
 .opinion-zones {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Adjust the space between drop zones */
 }
 
 .opinion-zone {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .drop-zone {
-    width: 150px; /* Adjusted width for drop zones */
-    height: 50px; /* Adjusted height for drop zones */
+    width: 200px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    border: 2px dashed #888;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
-    border: 2px dashed #333;
-    font-size: 1rem;
-    color: #333;
-    cursor: pointer;
-    margin-right: 10px; /* Adjust the space between drop zones */
+    justify-content: center;
 }
 
 .blank-squares {
     display: flex;
+    margin-top: 10px; /* Adjust margin as needed */
 }
 
 .blank-square {
-    width: 20px; /* Adjusted width for blank squares */
-    height: 20px; /* Adjusted height for blank squares */
+    width: 20px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
     background-color: #f0f0f0;
     border: 1px solid #333;
-    margin-left: 5px; /* Adjust the space between blank squares */
-}
-
-.justice-icons {
-    margin-top: 20px; /* Add some space between drop zones and justice icons */
-}
-
-.justice-icon {
-    width: 100px; /* Adjusted width for justice icons */
-    height: 50px; /* Adjusted height for justice icons */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    border: 2px solid #3a3a3c;
-    font-size: 1rem;
-    color: #3a3a3c;
-    cursor: grab;
-    margin-right: 10px; /* Adjust the space between justice icons */
+    margin-right: 5px; /* Adjust margin as needed */
 }
