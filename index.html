@@ -10,7 +10,14 @@
     <h1>Courtle</h1>
     <div id="gameBoard"></div>
     
-<div id="justice-icons">
+<!-- Target area for dropping the justices -->
+<div id="opinionZones" class="opinion-zones">
+    <div class="drop-zone">Majority Opinion</div>
+    <div class="drop-zone">Concurring Opinion</div>
+    <div class="drop-zone">Dissenting Opinion</div>
+</div>
+
+<div id="justice-icons" class="justice-icons">
     <div class="justice-icon" draggable="true" id="justice1">Justice 1</div>
     <div class="justice-icon" draggable="true" id="justice2">Justice 2</div>
     <div class="justice-icon" draggable="true" id="justice3">Justice 3</div>
@@ -22,14 +29,6 @@
     <div class="justice-icon" draggable="true" id="justice9">Justice 9</div>
 </div>
 
-    
-<!-- Target area for dropping the justices -->
-<div id="opinionZones">
-    Drop Justices Here
-</div>
-
-
-    
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
