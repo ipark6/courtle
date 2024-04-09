@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             setupOpinionDropZones(data.cases[0]); // Setup drop zones based on the case data
-            initializeJustices(data.cases[0]); // Setup justice icons based on the case data
+           // Setup justice icons based on the case data
         })
         .catch(error => console.error('Error loading JSON data: ', error));
 });
@@ -38,22 +38,22 @@ function setupOpinionDropZones(caseData) {
     setupDragAndDrop(); // Setup drag-and-drop functionality after creating the elements
 }
 
-function initializeJustices(caseData) {
-    const justiceIcons = document.getElementById('justice-icons');
-    justiceIcons.innerHTML = ''; // Clear existing icons before creating new ones
+function initializeJustices() {
+    const draggables = document.querySelectorAll('.justice-icon');
 
-    const justices = Array.from(new Set(caseData.opinions.flatMap(opinion => opinion.joinedBy)));
+    draggables.forEach(draggable => {
+        draggable.draggable = true;
+        draggable.addEventListener('dragstart', event => {
+            event.dataTransfer.setData('text/plain', draggable.id);
+            draggable.classList.add('dragging');
+        });
 
-    justices.forEach((justice, index) => {
-        const justiceIcon = document.createElement('div');
-        justiceIcon.classList.add('justice-icon');
-        justiceIcon.draggable = true;
-        justiceIcon.textContent = justice;
-        justiceIcon.id = `justice${index + 1}`;
-
-        justiceIcons.appendChild(justiceIcon);
+        draggable.addEventListener('dragend', () => {
+            draggable.classList.remove('dragging');
+        });
     });
 }
+
 
 function setupDragAndDrop() {
     const draggables = document.querySelectorAll('.justice-icon');
