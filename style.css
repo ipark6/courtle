@@ -26,6 +26,10 @@ body {
     cursor: grab;
 }
 
+.empty-box.over {
+    border-color: #4CAF50; /* Example color change */
+}
+
 #justices {
     display: flex;
     justify-content: center;
