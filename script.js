@@ -1,3 +1,5 @@
+console.log("Script loaded");
+
 document.addEventListener('DOMContentLoaded', function() {
     // Fetch the cases data from the JSON file
     fetch('data.json')
