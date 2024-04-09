@@ -1,29 +1,18 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courtle</title>
+    <title>Courtle Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Courtle</h1>
-    <div id="gameBoard"></div>
-    
-    <div id="opinionZones" class="opinion-zones">
-        <!-- Drop zones and blank squares will be dynamically generated here -->
+    <div id="opinions">
+        <!-- Dynamically generated opinion rows will go here -->
     </div>
 
-    <div id="justice-icons" class="justice-icons">
-        <div class="justice-icon" draggable="true" id="justice1">Kennedy</div>
-        <div class="justice-icon" draggable="true" id="justice2">Souter</div>
-        <div class="justice-icon" draggable="true" id="justice3">Ginsburg</div>
-        <div class="justice-icon" draggable="true" id="justice4">Breyer</div>
-        <div class="justice-icon" draggable="true" id="justice5">Roberts</div>
-        <div class="justice-icon" draggable="true" id="justice6">Scalia</div>
-        <div class="justice-icon" draggable="true" id="justice7">Thomas</div>
-        <div class="justice-icon" draggable="true" id="justice8">Alito</div>
-        <div class="justice-icon" draggable="true" id="justice9">Empty</div> <!-- Placeholder for empty space -->
+    <div id="justices">
+        <!-- Dynamically generated justice boxes will go here -->
     </div>
 
     <button id="submit">Submit</button>
