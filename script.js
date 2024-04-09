@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.error('Error loading JSON data: ', error));
 });
 
+
+
 function setupOpinionDropZones(caseData) {
     const opinionZones = document.getElementById('opinionZones');
     opinionZones.innerHTML = ''; // Clear existing zones before creating new ones
@@ -22,21 +24,16 @@ function setupOpinionDropZones(caseData) {
 
         opinionZone.appendChild(dropZone);
 
-        const blankSquares = document.createElement('div');
-        blankSquares.classList.add('blank-squares');
-        for (let i = 0; i < caseData.opinions.length; i++) {
-            const blankSquare = document.createElement('div');
-            blankSquare.classList.add('blank-square');
-            blankSquare.setAttribute('data-index', i); // Add index attribute to identify the position
-            blankSquares.appendChild(blankSquare);
-        }
-        opinionZone.appendChild(blankSquares);
+        const blankSquare = document.createElement('div');
+        blankSquare.classList.add('blank-square');
+        blankSquare.setAttribute('data-index', 0); // Add index attribute to identify the position
+        opinionZone.appendChild(blankSquare);
 
         opinionZones.appendChild(opinionZone);
     });
-
-    setupDragAndDrop(); // Setup drag-and-drop functionality after creating the elements
 }
+
+
 
 function initializeJustices() {
     const draggables = document.querySelectorAll('.justice-icon');
