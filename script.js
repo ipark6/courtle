@@ -1,12 +1,12 @@
 console.log("Script loaded");
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Fetch the cases data from the JSON file
     fetch('data.json')
         .then(response => response.json())
         .then(data => {
             // Assuming data is loaded correctly, initialize the game with the first case
             initializeGame(data.cases[0]);
+            // Now move setupDragAndDrop inside here, or call it after elements are created
         })
         .catch(error => console.error('Error loading JSON data: ', error));
 });
@@ -18,41 +18,44 @@ function initializeGame(caseData) {
         return;
     }
     
-    // Display case information
-    gameBoard.innerHTML = `
-        <h2>${caseData.name}</h2>
-        <p>${caseData.description}</p>
-        <p><strong>Disposition:</strong> ${caseData.disposition}</p>
-        <input type="text" id="guessInput" placeholder="Enter Justice Name"/>
-        <button onclick="submitGuess('${caseData.opinions[0].author}')">Submit Guess</button>
-        <div id="feedback"></div>
-    `;
+    // Dynamically generate your game's content here
+    // Example: gameBoard.innerHTML = `<div class="justice-icon" draggable="true">Justice Name</div>`;
+    
+    // Once content is generated, set up drag-and-drop
+    setupDragAndDrop(); // Make sure this is called after your elements are added to the page
 }
 
+function setupDragAndDrop() {
     const draggables = document.querySelectorAll('.justice-icon');
     const dropZone = document.getElementById('drop-zone');
 
     draggables.forEach(draggable => {
-        draggable.addEventListener('dragstart', () => {
-            draggable.classList.add('dragging');
+        draggable.addEventListener('dragstart', event => {
+            event.target.classList.add('dragging');
         });
 
-        draggable.addEventListener('dragend', () => {
+        draggable.addEventListener('dragend', event => {
+            event.target.classList.remove('dragging');
+        });
+    });
+
+    if (dropZone) {
+        dropZone.addEventListener('dragover', event => {
+            event.preventDefault(); // This allows for dropping
+            // Handle dragover event
+        });
+
+        dropZone.addEventListener('drop', event => {
+            // Handle drop event
+            const draggable = document.querySelector('.dragging');
+            dropZone.appendChild(draggable); // Example action
             draggable.classList.remove('dragging');
         });
-    });
+    }
+}
 
-    dropZone.addEventListener('dragover', e => {
-        e.preventDefault(); // Necessary to allow dropping
-        const afterElement = getDragAfterElement(dropZone, e.clientY);
-        const draggable = document.querySelector('.dragging');
-        if (afterElement == null) {
-            dropZone.appendChild(draggable);
-        } else {
-            dropZone.insertBefore(draggable, afterElement);
-        }
-    });
-});
+// Remaining functions (getDragAfterElement, submitGuess) unchanged
+
 
 function getDragAfterElement(container, y) {
     const draggableElements = [...container.querySelectorAll('.justice-icon:not(.dragging)')];
