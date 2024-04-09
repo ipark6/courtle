@@ -1,15 +1,14 @@
-console.log("Script loaded");
-
 document.addEventListener('DOMContentLoaded', function() {
     fetch('data.json')
         .then(response => response.json())
         .then(data => {
             // Assuming data is loaded correctly, initialize the game with the first case
-            initializeGame(data.cases[0]);
-            // Now move setupDragAndDrop inside here, or call it after elements are created
+            // initializeGame(data.cases[0]); // Your existing initialization logic
+            setupOpinionDropZones(data.cases[0]); // Setup drop zones based on the case data
         })
         .catch(error => console.error('Error loading JSON data: ', error));
 });
+
 
 
 
@@ -38,35 +37,67 @@ function initializeGame(caseData) {
     setupDragAndDrop();
 }
 
+
+
+
+
+function setupOpinionDropZones(caseData) {
+    const opinionTypes = new Set(caseData.opinions.map(opinion => opinion.type));
+    const opinionZones = document.getElementById('opinionZones');
+    opinionZones.innerHTML = ''; // Clear existing zones
+
+    opinionTypes.forEach(type => {
+        const dropZone = document.createElement('div');
+        dropZone.classList.add('drop-zone');
+        dropZone.setAttribute('data-opinion-type', type); // Useful for identifying the drop zone
+        dropZone.textContent = type; // Label the drop zone
+        opinionZones.appendChild(dropZone);
+    });
+
+    setupDragAndDrop(); // Call to setup drag-and-drop functionality
+}
+
+
 function setupDragAndDrop() {
+    const draggables = document.querySelectorAll('.justice-icon');
     const dropZones = document.querySelectorAll('.drop-zone');
-    
+
+    // Setup draggables
+    draggables.forEach(draggable => {
+        draggable.addEventListener('dragstart', event => {
+            event.dataTransfer.setData('text/plain', draggable.id);
+            draggable.classList.add('dragging');
+        });
+
+        draggable.addEventListener('dragend', () => {
+            draggable.classList.remove('dragging');
+        });
+    });
+
+    // Setup drop zones
     dropZones.forEach(zone => {
         zone.addEventListener('dragover', event => {
-            event.preventDefault(); // Allow dropping
-            zone.classList.add('active-drop-zone'); // Visual feedback
+            event.preventDefault();
+            zone.classList.add('active-drop-zone');
         });
 
         zone.addEventListener('dragleave', () => {
-            zone.classList.remove('active-drop-zone'); // Remove visual feedback
+            zone.classList.remove('active-drop-zone');
         });
 
         zone.addEventListener('drop', event => {
             event.preventDefault();
             const draggableId = event.dataTransfer.getData('text/plain');
             const draggable = document.getElementById(draggableId);
-            zone.classList.remove('active-drop-zone'); // Clean up visual feedback
-
-            if (draggable && zone.children.length === 0) { // Simple logic to prevent multiple drops, adjust as needed
+            const draggableAllowed = zone.getAttribute('data-opinion-type'); // Example of using data attribute to match draggables and drop zones
+            
+            if (draggable && (!draggableAllowed || draggableAllowed === draggable.getAttribute('data-opinion-type'))) { // Example condition, adjust as needed
                 zone.appendChild(draggable);
             }
+            zone.classList.remove('active-drop-zone');
         });
     });
 }
-
-
-
-
 
 
 // Remaining functions (getDragAfterElement, submitGuess) unchanged
