@@ -1,14 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('data.json') 
+    fetch('data.json')
         .then(response => response.json())
         .then(data => {
             setupOpinionDropZones(data.cases[0]); // Setup drop zones based on the case data
-           // Setup justice icons based on the case data
+            initializeJustices(); // Initialize justice icons
+            setupDragAndDrop(); // Setup drag-and-drop functionality
         })
         .catch(error => console.error('Error loading JSON data: ', error));
 });
-
-
 
 function setupOpinionDropZones(caseData) {
     const opinionZones = document.getElementById('opinionZones');
@@ -33,8 +32,6 @@ function setupOpinionDropZones(caseData) {
     });
 }
 
-
-
 function initializeJustices() {
     const draggables = document.querySelectorAll('.justice-icon');
 
@@ -50,7 +47,6 @@ function initializeJustices() {
         });
     });
 }
-
 
 function setupDragAndDrop() {
     const draggables = document.querySelectorAll('.justice-icon');
@@ -81,8 +77,8 @@ function setupDragAndDrop() {
             event.preventDefault();
             const draggableId = event.dataTransfer.getData('text/plain');
             const draggable = document.getElementById(draggableId);
-            const blankSquare = event.target.closest('.blank-square'); // Find the closest blank square
-            if (draggable && blankSquare) {
+            const blankSquare = zone.querySelector('.blank-square'); // Find the blank square within the drop zone
+            if (draggable && blankSquare && blankSquare.textContent === '') {
                 blankSquare.textContent = draggable.textContent; // Replace the text of the blank square with the draggable's text content
                 draggable.textContent = ''; // Clear the draggable's text content
             }
@@ -90,5 +86,3 @@ function setupDragAndDrop() {
         });
     });
 }
-
-
