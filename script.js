@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const opinions = document.getElementById('opinions');
-    const justices = document.getElementById('justices');
+    const justicesNames = document.getElementById('justices');
     const opinionTypes = ['Majority', 'Concurring', 'Dissent']; // Example opinion types
-    const justiceNames = gameData.justices;
+ 
 
     // Create opinion rows
     opinionTypes.forEach(type => {
