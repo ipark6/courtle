@@ -47,9 +47,14 @@ h1 {
 }
 
 /* Style for drag-over and drop zones */
+.opinion-zones {
+    display: flex;
+    gap: 10px; /* Adjust the space between drop zones */
+}
+
 .drop-zone {
-    width: 200px; /* Adjusted width for drop zones */
-    height: 70px; /* Adjusted height for drop zones */
+    width: 70px; /* Adjusted width for drop zones (square) */
+    height: 70px; /* Adjusted height for drop zones (square) */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,7 +63,6 @@ h1 {
     font-size: 1rem;
     color: #333;
     cursor: pointer;
-    margin-bottom: 10px; /* Added margin bottom for spacing */
 }
 
 .dragging {
