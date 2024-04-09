@@ -20,6 +20,8 @@ function setupOpinionDropZones(caseData) {
         dropZone.classList.add('drop-zone');
         dropZone.textContent = opinion.type;
 
+        opinionZone.appendChild(dropZone);
+
         const blankSquares = document.createElement('div');
         blankSquares.classList.add('blank-squares');
         for (let i = 0; i < caseData.opinions.length; i++) {
@@ -27,8 +29,6 @@ function setupOpinionDropZones(caseData) {
             blankSquare.classList.add('blank-square');
             blankSquares.appendChild(blankSquare);
         }
-
-        opinionZone.appendChild(dropZone);
         opinionZone.appendChild(blankSquares);
 
         opinionZones.appendChild(opinionZone);
