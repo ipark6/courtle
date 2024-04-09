@@ -1,23 +1,10 @@
-body {
+.opinion-zone {
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* Ensure full viewport height */
-    margin: 0;
+    align-items: center; /* Center content horizontally */
+    text-align: center; /* Center text content */
 }
-
-.opinion-zones, .justice-icons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.opinion-zone, .drop-zone, .blank-squares, .justice-icon {
-    margin: 10px; /* Add margin around each element for spacing */
-}
-
-
 
 .drop-zone {
     width: 200px; /* Adjust width as needed */
@@ -27,11 +14,6 @@ body {
     align-items: center;
     justify-content: center;
     margin-bottom: 10px; /* Adjust margin as needed */
-}
-
-.blank-squares {
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .blank-square {
