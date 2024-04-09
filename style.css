@@ -1,14 +1,22 @@
-.opinion-zones {
+body {
     display: flex;
     flex-direction: column;
-    /* align-items: flex-start; Remove this line */
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ensure full viewport height */
+    margin: 0;
 }
 
-.opinion-zone {
-    margin-bottom: 20px;
-    display: flex; /* Add this line */
-    align-items: center; /* Add this line */
+.opinion-zones, .justice-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.opinion-zone, .drop-zone, .blank-squares, .justice-icon {
+    margin: 10px; /* Add margin around each element for spacing */
+}
+
 
 
 .drop-zone {
