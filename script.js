@@ -25,7 +25,6 @@ function setupOpinionDropZones(caseData) {
 
         const blankSquare = document.createElement('div');
         blankSquare.classList.add('blank-square');
-        blankSquare.setAttribute('data-index', 0); // Add index attribute to identify the position
         opinionZone.appendChild(blankSquare);
 
         opinionZones.appendChild(opinionZone);
