@@ -21,40 +21,20 @@ h1 {
     margin: 20px 0;
 }
 
-#gameBoard {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 600px;
-    gap: 10px;
-    padding: 20px;
-    background-color: #d3d6da;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.tile, .justice-icon {
-    width: 100px; /* Adjusted width for justices' icons */
-    height: 50px; /* Adjusted height for justices' icons */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    border: 2px solid #3a3a3c;
-    font-size: 1rem;
-    color: #3a3a3c;
-    user-select: none; /* Prevent user from selecting text on drag */
-    cursor: grab;
-}
-
-/* Style for drag-over and drop zones */
 .opinion-zones {
     display: flex;
-    gap: 10px; /* Adjust the space between drop zones */
+    flex-direction: column;
+    gap: 20px; /* Adjust the space between drop zones */
+}
+
+.opinion-zone {
+    display: flex;
+    align-items: center;
 }
 
 .drop-zone {
-    width: 70px; /* Adjusted width for drop zones (square) */
-    height: 70px; /* Adjusted height for drop zones (square) */
+    width: 150px; /* Adjusted width for drop zones */
+    height: 50px; /* Adjusted height for drop zones */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,45 +46,32 @@ h1 {
     margin-right: 10px; /* Adjust the space between drop zones */
 }
 
-.dragging {
-    opacity: 0.5;
+.blank-squares {
+    display: flex;
 }
 
-button {
-    background-color: #6aaa64;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+.blank-square {
+    width: 20px; /* Adjusted width for blank squares */
+    height: 20px; /* Adjusted height for blank squares */
+    background-color: #f0f0f0;
+    border: 1px solid #333;
+    margin-left: 5px; /* Adjust the space between blank squares */
 }
 
-button:hover {
-    background-color: #538d4e;
+.justice-icons {
+    margin-top: 20px; /* Add some space between drop zones and justice icons */
 }
 
-input[type="text"] {
+.justice-icon {
+    width: 100px; /* Adjusted width for justice icons */
+    height: 50px; /* Adjusted height for justice icons */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
     border: 2px solid #3a3a3c;
-    padding: 10px;
     font-size: 1rem;
-    margin: 20px 0;
-}
-
-#feedback {
-    color: #6aaa64;
-    font-size: 1.2rem;
-}
-
-@media (max-width: 600px) {
-    .tile, .justice-icon {
-        width: 48px; /* Smaller tiles for smaller screens */
-        height: 48px;
-    }
-
-    #gameBoard {
-        max-width: 90vw; /* Use a percentage of the viewport width */
-        gap: 5px;
-    }
+    color: #3a3a3c;
+    cursor: grab;
+    margin-right: 10px; /* Adjust the space between justice icons */
 }
