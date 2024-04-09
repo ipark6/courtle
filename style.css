@@ -1,12 +1,15 @@
 .opinion-zones {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    /* align-items: flex-start; Remove this line */
 }
 
 .opinion-zone {
     margin-bottom: 20px;
+    display: flex; /* Add this line */
+    align-items: center; /* Add this line */
 }
+
 
 .drop-zone {
     width: 200px; /* Adjust width as needed */
