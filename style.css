@@ -19,8 +19,8 @@
 }
 
 .blank-square {
-    width: 20px; /* Adjust width as needed */
-    height: 20px; /* Adjust height as needed */
+    width: 100px; /* Adjust width as needed */
+    height: 100px; /* Adjust height as needed */
     background-color: #f0f0f0;
     border: 1px solid #333;
     margin: 2px; /* Adjust margin as needed */
@@ -35,6 +35,8 @@
 }
 
 .justice-icon {
+    width: 100px; /* Adjust width as needed */
+    height: 100px; /* Adjust height as needed */
     margin: 5px; /* Add some margin around each justice icon */
     padding: 10px; /* Add padding to make justice icons larger */
     background-color: #f0f0f0; /* Add background color for better visibility */
