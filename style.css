@@ -25,8 +25,16 @@
     border: 1px solid #333;
     margin: 2px; /* Adjust margin as needed */
     text-align: center; /* Center the text within the blank square */
-    line-height: 20px; /* Vertically center the text within the blank square */
+    line-height: 100px; /* Vertically center the text within the blank square */
+    font-size: 16px; /* Adjust font size as needed */
+    font-weight: bold; /* Add font weight for better visibility */
+    cursor: pointer; /* Change cursor to pointer on hover */
 }
+
+.blank-square.dragged {
+    background-color: transparent; /* Make background transparent when a Justice name is dragged onto it */
+}
+
 
 .justice-icons {
     display: flex;
