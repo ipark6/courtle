@@ -33,8 +33,8 @@ h1 {
 }
 
 .tile, .justice-icon {
-    width: 60px;
-    height: 60px;
+    width: 100px; /* Adjusted width for justices' icons */
+    height: 50px; /* Adjusted height for justices' icons */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,7 +48,17 @@ h1 {
 
 /* Style for drag-over and drop zones */
 .drop-zone {
-    border: 2px dashed #888;
+    width: 200px; /* Adjusted width for drop zones */
+    height: 70px; /* Adjusted height for drop zones */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    border: 2px dashed #333;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+    margin-bottom: 10px; /* Added margin bottom for spacing */
 }
 
 .dragging {
