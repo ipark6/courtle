@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const opinions = document.getElementById('opinions');
     const justices = document.getElementById('justices');
     const opinionTypes = ['Majority', 'Concurring', 'Dissent']; // Example opinion types
-    const justiceNames = ['Justice 1', 'Justice 2', 'Justice 3', 'Justice 4', 'Justice 5', 'Justice 6', 'Justice 7', 'Justice 8', 'Justice 9'];
+    const justiceNames = gameData.justices;
 
     // Create opinion rows
     opinionTypes.forEach(type => {
