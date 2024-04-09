@@ -86,10 +86,11 @@ function setupDragAndDrop() {
             const draggable = document.getElementById(draggableId);
             const blankSquare = event.target.closest('.blank-square'); // Find the closest blank square
             if (draggable && blankSquare) {
-                blankSquare.textContent = draggable.textContent; // Replace the text of the blank square
-                draggable.remove(); // Remove the dragged justice's name
+                blankSquare.textContent = draggable.textContent; // Replace the text of the blank square with the draggable's text content
+                draggable.textContent = ''; // Clear the draggable's text content
             }
             zone.classList.remove('active-drop-zone');
         });
     });
 }
+
