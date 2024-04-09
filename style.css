@@ -19,39 +19,37 @@
 }
 
 .blank-square {
-    width: 100px; /* Adjust width as needed */
-    height: 100px; /* Adjust height as needed */
+    width: 150px; /* Adjust width as needed */
+    height: 150px; /* Adjust height as needed */
     background-color: #f0f0f0;
-    border: 1px solid #333;
-    margin: 2px; /* Adjust margin as needed */
+    border: 2px solid #333;
+    margin: 10px; /* Adjust margin as needed */
     text-align: center; /* Center the text within the blank square */
-    line-height: 100px; /* Vertically center the text within the blank square */
-    font-size: 16px; /* Adjust font size as needed */
+    line-height: 150px; /* Vertically center the text within the blank square */
+    font-size: 20px; /* Adjust font size as needed */
     font-weight: bold; /* Add font weight for better visibility */
     cursor: pointer; /* Change cursor to pointer on hover */
 }
+
+
+
 
 .blank-square.dragged {
     background-color: transparent; /* Make background transparent when a Justice name is dragged onto it */
 }
 
 
-.justice-icons {
-    display: flex;
-    flex-wrap: wrap; /* Allow justice icons to wrap to the next line if needed */
-    justify-content: center; /* Center justice icons horizontally */
-}
-
 .justice-icon {
-    width: 100px; /* Adjust width as needed */
-    height: 100px; /* Adjust height as needed */
-    margin: 5px; /* Add some margin around each justice icon */
-    padding: 10px; /* Add padding to make justice icons larger */
+    width: 150px; /* Adjust width as needed */
+    height: 150px; /* Adjust height as needed */
+    margin: 10px; /* Add some margin around each justice icon */
+    padding: 20px; /* Add padding to make justice icons larger */
     background-color: #f0f0f0; /* Add background color for better visibility */
-    border: 1px solid #ccc; /* Add a border for better visibility */
-    border-radius: 5px; /* Add border radius for rounded corners */
+    border: 2px solid #ccc; /* Add a border for better visibility */
+    border-radius: 10px; /* Add border radius for rounded corners */
     cursor: pointer; /* Change cursor to pointer on hover */
 }
+
 
 button#submit {
     margin-top: 20px; /* Add margin to the top of the submit button */
