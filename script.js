@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             // Assuming data is loaded correctly, initialize the game with the first case
             // initializeGame(data.cases[0]); // Your existing initialization logic
-            setupOpinionDropZones(data.cases[0]); // Setup drop zones based on the case data
+            setupOpinionDropZones(caseData);  // Setup drop zones based on the case data
         })
         .catch(error => console.error('Error loading JSON data: ', error));
 });
