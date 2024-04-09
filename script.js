@@ -29,6 +29,46 @@ function initializeGame(caseData) {
     `;
 }
 
+    const draggables = document.querySelectorAll('.justice-icon');
+    const dropZone = document.getElementById('drop-zone');
+
+    draggables.forEach(draggable => {
+        draggable.addEventListener('dragstart', () => {
+            draggable.classList.add('dragging');
+        });
+
+        draggable.addEventListener('dragend', () => {
+            draggable.classList.remove('dragging');
+        });
+    });
+
+    dropZone.addEventListener('dragover', e => {
+        e.preventDefault(); // Necessary to allow dropping
+        const afterElement = getDragAfterElement(dropZone, e.clientY);
+        const draggable = document.querySelector('.dragging');
+        if (afterElement == null) {
+            dropZone.appendChild(draggable);
+        } else {
+            dropZone.insertBefore(draggable, afterElement);
+        }
+    });
+});
+
+function getDragAfterElement(container, y) {
+    const draggableElements = [...container.querySelectorAll('.justice-icon:not(.dragging)')];
+
+    return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child };
+        } else {
+            return closest;
+        }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
+
+
 function submitGuess(correctAuthor) {
     const guess = document.getElementById('guessInput').value;
     const feedback = document.getElementById('feedback');
