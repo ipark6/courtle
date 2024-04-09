@@ -42,20 +42,21 @@ function initializeGame(caseData) {
 
 
 function setupOpinionDropZones(caseData) {
-    const opinionTypes = new Set(caseData.opinions.map(opinion => opinion.type));
     const opinionZones = document.getElementById('opinionZones');
-    opinionZones.innerHTML = ''; // Clear existing zones
+    opinionZones.innerHTML = ''; // Clear existing zones before creating new ones
 
-    opinionTypes.forEach(type => {
+    // Loop through each opinion to create a drop zone
+    caseData.opinions.forEach((opinion, index) => {
         const dropZone = document.createElement('div');
         dropZone.classList.add('drop-zone');
-        dropZone.setAttribute('data-opinion-type', type); // Useful for identifying the drop zone
-        dropZone.textContent = type; // Label the drop zone
+        dropZone.setAttribute('data-opinion-type', opinion.type);
+        dropZone.textContent = `${opinion.type} ${index + 1}`; // Adding a number to distinguish between same types
         opinionZones.appendChild(dropZone);
     });
 
-    setupDragAndDrop(); // Call to setup drag-and-drop functionality
+    setupDragAndDrop(); // Assuming this function sets up the drag-and-drop functionality
 }
+
 
 
 function setupDragAndDrop() {
