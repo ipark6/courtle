@@ -11,48 +11,63 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.error('Error loading JSON data: ', error));
 });
 
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Example initialization (replace with fetch and actual game setup)
+    initializeGame({
+        name: "Example Case",
+        description: "Example Description",
+        disposition: "Disposition here",
+        opinions: [
+            {type: "Majority Opinion", author: "Justice 1"},
+            {type: "Concurring Opinion", author: "Justice 2"},
+            {type: "Dissenting Opinion", author: "Justice 3"}
+        ]
+    });
+});
+
 function initializeGame(caseData) {
-    const gameBoard = document.getElementById('gameBoard');
-    if (!gameBoard) {
-        console.error('Game board element not found.');
-        return;
-    }
-    
-    // Dynamically generate your game's content here
-    // Example: gameBoard.innerHTML = `<div class="justice-icon" draggable="true">Justice Name</div>`;
-    
-    // Once content is generated, set up drag-and-drop
-    setupDragAndDrop(); // Make sure this is called after your elements are added to the page
+    // Set up case information (this part can be dynamic based on your caseData)
+    document.getElementById('caseName').textContent = caseData.name;
+    document.getElementById('caseDescription').textContent = caseData.description;
+    document.getElementById('caseDisposition').textContent = `Disposition: ${caseData.disposition}`;
+
+    // Assuming you have justices' icons ready to be dragged (not shown here)
+    // Setup drop zones (should already be in HTML, adjust if generating dynamically)
+    setupDragAndDrop();
 }
 
 function setupDragAndDrop() {
-    const draggables = document.querySelectorAll('.justice-icon');
-    const dropZone = document.getElementById('drop-zone');
-
-    draggables.forEach(draggable => {
-        draggable.addEventListener('dragstart', event => {
-            event.target.classList.add('dragging');
+    const dropZones = document.querySelectorAll('.drop-zone');
+    
+    dropZones.forEach(zone => {
+        zone.addEventListener('dragover', event => {
+            event.preventDefault(); // Allow dropping
+            zone.classList.add('active-drop-zone'); // Visual feedback
         });
 
-        draggable.addEventListener('dragend', event => {
-            event.target.classList.remove('dragging');
+        zone.addEventListener('dragleave', () => {
+            zone.classList.remove('active-drop-zone'); // Remove visual feedback
+        });
+
+        zone.addEventListener('drop', event => {
+            event.preventDefault();
+            const draggableId = event.dataTransfer.getData('text/plain');
+            const draggable = document.getElementById(draggableId);
+            zone.classList.remove('active-drop-zone'); // Clean up visual feedback
+
+            if (draggable && zone.children.length === 0) { // Simple logic to prevent multiple drops, adjust as needed
+                zone.appendChild(draggable);
+            }
         });
     });
-
-    if (dropZone) {
-        dropZone.addEventListener('dragover', event => {
-            event.preventDefault(); // This allows for dropping
-            // Handle dragover event
-        });
-
-        dropZone.addEventListener('drop', event => {
-            // Handle drop event
-            const draggable = document.querySelector('.dragging');
-            dropZone.appendChild(draggable); // Example action
-            draggable.classList.remove('dragging');
-        });
-    }
 }
+
+
+
+
+
 
 // Remaining functions (getDragAfterElement, submitGuess) unchanged
 
