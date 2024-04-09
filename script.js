@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('data.json')
+    fetch('data.json') 
         .then(response => response.json())
         .then(data => {
             setupOpinionDropZones(data.cases[0]); // Setup drop zones based on the case data
