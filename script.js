@@ -45,4 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const id = e.dataTransfer.getData('text');
             const draggedElement = document.getElementById(id);
             e.target.textContent = draggedElement.textContent;
-            e.target
+            e.target.className = 'justice-box';
+            draggedElement.remove(); // Remove from the original list
+        });
+    });
+});
