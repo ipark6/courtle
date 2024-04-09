@@ -1,9 +1,11 @@
-.opinion-zone {
-    margin-bottom: 20px;
+.opinion-zones {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    text-align: center; /* Center text content */
+    align-items: center; /* Center opinion zones horizontally */
+}
+
+.opinion-zone {
+    margin-bottom: 20px;
 }
 
 .drop-zone {
@@ -22,6 +24,8 @@
     background-color: #f0f0f0;
     border: 1px solid #333;
     margin: 2px; /* Adjust margin as needed */
+    text-align: center; /* Center the text within the blank square */
+    line-height: 20px; /* Vertically center the text within the blank square */
 }
 
 .justice-icons {
