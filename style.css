@@ -1,45 +1,95 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2487.2">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
-</head>
-<body>
-<p class="p1">/* Basic Reset */</p>
-<p class="p1">* {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>box-sizing: border-box;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">body {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>font-family: 'Arial', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>background-color: #f0f0f0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>color: #333;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>padding: 20px;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">h1 {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>margin-bottom: 20px;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">#gameBoard {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>max-width: 600px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>margin: auto;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>background-color: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>border: 1px solid #ddd;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 10px;</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">/* Add more styles based on your game's components */</p>
-</body>
-</html>
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica', Arial, sans-serif;
+    background-color: #f5f5f7;
+    color: #121213;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    margin: 20px 0;
+}
+
+#gameBoard {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 600px;
+    gap: 10px;
+    padding: 20px;
+    background-color: #d3d6da;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.tile, .justice-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #3a3a3c;
+    font-size: 1rem;
+    color: #3a3a3c;
+    user-select: none; /* Prevent user from selecting text on drag */
+    cursor: grab;
+}
+
+/* Style for drag-over and drop zones */
+.drop-zone {
+    border: 2px dashed #888;
+}
+
+.dragging {
+    opacity: 0.5;
+}
+
+button {
+    background-color: #6aaa64;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #538d4e;
+}
+
+input[type="text"] {
+    border: 2px solid #3a3a3c;
+    padding: 10px;
+    font-size: 1rem;
+    margin: 20px 0;
+}
+
+#feedback {
+    color: #6aaa64;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 600px) {
+    .tile, .justice-icon {
+        width: 48px; /* Smaller tiles for smaller screens */
+        height: 48px;
+    }
+
+    #gameBoard {
+        max-width: 90vw; /* Use a percentage of the viewport width */
+        gap: 5px;
+    }
+}
