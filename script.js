@@ -22,7 +22,7 @@ function setupOpinionDropZones(caseData) {
 
         const blankSquares = document.createElement('div');
         blankSquares.classList.add('blank-squares');
-        for (let i = 0; i < opinion.joinedBy.length; i++) {
+        for (let i = 0; i < caseData.opinions.length; i++) {
             const blankSquare = document.createElement('div');
             blankSquare.classList.add('blank-square');
             blankSquares.appendChild(blankSquare);
