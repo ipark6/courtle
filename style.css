@@ -1,66 +1,44 @@
-.opinion-zones {
+body {
+    font-family: 'Helvetica', Arial, sans-serif;
     display: flex;
-    flex-direction: column; 
-    align-items: center; /* Center opinion zones horizontally */
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
-.opinion-zone {
+#opinions .opinion-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.opinion-type {
+    flex-basis: 20%;
+}
+
+.empty-box, .justice-box {
+    width: 100px;
+    height: 100px;
+    border: 2px dashed #888;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+}
+
+#justices {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
-.drop-zone {
-    width: 200px; /* Adjust width as needed */
-    height: 50px; /* Adjust height as needed */
-    border: 2px dashed #888;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px; /* Adjust margin as needed */
-}
-
-.blank-square {
-    width: 150px; /* Adjust width as needed */
-    height: 150px; /* Adjust height as needed */
-    background-color: #f0f0f0;
-    border: 2px solid #333;
-    margin: 10px; /* Adjust margin as needed */
-    text-align: center; /* Center the text within the blank square */
-    line-height: 150px; /* Vertically center the text within the blank square */
-    font-size: 20px; /* Adjust font size as needed */
-    font-weight: bold; /* Add font weight for better visibility */
-    cursor: pointer; /* Change cursor to pointer on hover */
-}
-
-
-
-
-.blank-square.dragged {
-    background-color: transparent; /* Make background transparent when a Justice name is dragged onto it */
-}
-
-
-.justice-icon {
-    width: 150px; /* Adjust width as needed */
-    height: 150px; /* Adjust height as needed */
-    margin: 10px; /* Add some margin around each justice icon */
-    padding: 20px; /* Add padding to make justice icons larger */
-    background-color: #f0f0f0; /* Add background color for better visibility */
-    border: 2px solid #ccc; /* Add a border for better visibility */
-    border-radius: 10px; /* Add border radius for rounded corners */
-    cursor: pointer; /* Change cursor to pointer on hover */
-}
-
-
-button#submit {
-    margin-top: 20px; /* Add margin to the top of the submit button */
-    padding: 10px 20px; /* Add padding to make the button larger */
-    background-color: #007bff; /* Set button background color */
-    color: #fff; /* Set text color to white */
-    border: none; /* Remove button border */
-    border-radius: 5px; /* Add border radius for rounded corners */
-    cursor: pointer; /* Change cursor to pointer on hover */
-}
-
-button#submit:hover {
-    background-color: #0056b3; /* Darken button background color on hover */
+#submit {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
