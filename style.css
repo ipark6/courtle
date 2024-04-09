@@ -30,3 +30,32 @@
     border: 1px solid #333;
     margin: 2px; /* Adjust margin as needed */
 }
+
+.justice-icons {
+    display: flex;
+    flex-wrap: wrap; /* Allow justice icons to wrap to the next line if needed */
+    justify-content: center; /* Center justice icons horizontally */
+}
+
+.justice-icon {
+    margin: 5px; /* Add some margin around each justice icon */
+    padding: 10px; /* Add padding to make justice icons larger */
+    background-color: #f0f0f0; /* Add background color for better visibility */
+    border: 1px solid #ccc; /* Add a border for better visibility */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+button#submit {
+    margin-top: 20px; /* Add margin to the top of the submit button */
+    padding: 10px 20px; /* Add padding to make the button larger */
+    background-color: #007bff; /* Set button background color */
+    color: #fff; /* Set text color to white */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+button#submit:hover {
+    background-color: #0056b3; /* Darken button background color on hover */
+}
