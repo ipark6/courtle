@@ -6,19 +6,19 @@
       "opinions": [
         {
           "type": "Opinion of the Court",
-          "text": "The Court's decision to grant authority to the EPA...",
+          "text": "...",
           "author": "Stevens",
           "joinedBy": ["Kennedy", "Souter", "Ginsburg", "Breyer"]
         },
         {
           "type": "Dissent",
-          "text": "Disagreeing with the majority, Roberts argues...",
+          "text": "...",
           "author": "Roberts",
           "joinedBy": ["Scalia", "Thomas", "Alito"]
         },
         {
           "type": "Dissent",
-          "text": "Echoing Roberts' concerns, Scalia adds...",
+          "text": "...",
           "author": "Scalia",
           "joinedBy": ["Roberts", "Thomas", "Alito"]
         }
@@ -26,6 +26,6 @@
     }
   ],
   "justices": [
-    "Kennedy", "Souter", "Ginsburg", "Breyer", "Roberts", "Scalia", "Thomas", "Alito", "Stevens"
+    "Kennedy", "Souter", "Ginsburg", "Breyer", "Roberts", "Scalia", "Thomas", "Alito", "Stevens", "Rehnquist", "O'Connor", "Scalia", "Kennedy", "Souter", "Breyer", "Ginsburg"
   ]
 }
