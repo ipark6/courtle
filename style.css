@@ -4,7 +4,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-}
+} 
 
 /* Adjusting opinion rows to columns */
 #opinions .opinion-column {
