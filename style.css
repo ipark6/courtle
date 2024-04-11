@@ -62,3 +62,34 @@ body {
     cursor: pointer;
     border-radius: 5px;
 }
+
+
+/* Style adjustments for feedback */
+.filled-box.correct {
+    background-color: green; /* Green for correct author */
+}
+
+.filled-box.incorrect {
+    background-color: red; /* Red for incorrect guess */
+}
+
+/* Layout for Justices */
+#justices {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Adjust based on number of justices */
+    grid-gap: 10px;
+    margin-top: 20px; /* Vertical space between rows and justices */
+}
+
+/* Additional styles for locked boxes to prevent interaction */
+.locked {
+    pointer-events: none; /* Disable interactions for locked boxes */
+    background-color: #e0e0e0; /* Lighter color for locked boxes */
+}
+
+/* New styles for box rows to hold the opinion boxes */
+.box-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
