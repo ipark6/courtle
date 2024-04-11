@@ -7,38 +7,50 @@ body {
 } 
 
 /* Adjusting opinion rows to columns */
-#opinions .opinion-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 10px;
+/* Adjustments to #opinions to layout columns as a grid */
+#opinions {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Creates a grid with flexible column numbers */
+    gap: 10px; /* Space between columns */
+    justify-content: center; /* Center the grid */
+    margin-top: 20px;
 }
 
-.opinion-type {
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.empty-box, .filled-box, .justice-box {
-    width: 100px;
-    height: 100px;
-    border: 2px dashed #888;
+.box-row {
     display: flex;
     justify-content: center;
+    margin-bottom: 5px;
+}
+
+/* Opinion type headings */
+.opinion-type {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+/* Adjustments for empty boxes and filled boxes */
+.empty-box, .filled-box {
+    border: 2px dashed #888;
+    width: 100px; /* Width of the boxes */
+    height: 100px; /* Height of the boxes */
+    display: flex;
     align-items: center;
-    margin-bottom: 10px;
-    cursor: grab;
+    justify-content: center;
+    margin-bottom: 10px; /* Space between boxes in the same column */
 }
 
-.filled-box {
-    cursor: default;
-    border: 2px solid #4CAF50; /* Indicate the box is filled */
+/* Style adjustments for feedback */
+.filled-box.correct {
+    background-color: green; /* Green for correct author */
 }
 
-/* Highlighting box during drag over */
-.empty-box.over {
-    border-color: #4CAF50;
+.filled-box.incorrect {
+    background-color: red; /* Red for incorrect guess */
 }
+
+/* Other existing styles remain the same... */
+
+
 
 #justices {
     display: flex;
