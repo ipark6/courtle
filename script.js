@@ -1,9 +1,12 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const opinionsContainer = document.getElementById('opinions');
     const justicesContainer = document.getElementById('justices');
+    const submitButton = document.getElementById('submit');
     let caseData = await fetch('data.json').then(response => response.json());
     let currentCase = caseData.cases[0]; // Assuming we're working with the first case
+    let currentGuessIndex = 0;
 
+ 
     // Display Case Description
     const caseDescription = document.createElement('p');
     caseDescription.textContent = currentCase.description;
@@ -59,5 +62,27 @@ document.addEventListener('DOMContentLoaded', async () => {
             e.target.replaceWith(clone);
             draggedElement.remove();
         });
+    });
+
+
+ // Add event listener for the submit button
+    submitButton.addEventListener('click', () => {
+        // Process feedback for the current guess
+        const currentGuessBoxes = opinionsContainer.querySelectorAll(`.box-row:nth-child(${currentGuessIndex + 1}) .filled-box`);
+        currentGuessBoxes.forEach(box => {
+            const guessType = box.getAttribute('data-type');
+            const guessAuthor = box.textContent.trim();
+            const isCorrectAuthor = currentCase.opinions.some(opinion => opinion.type === guessType && opinion.author === guessAuthor);
+            box.style.backgroundColor = isCorrectAuthor ? 'green' : 'red';
+        });
+
+        // Unlock the next row
+        if (currentGuessIndex < 5) {
+            currentGuessIndex++;
+            const nextRowBoxes = opinionsContainer.querySelectorAll(`.box-row:nth-child(${currentGuessIndex + 1}) .empty-box`);
+            nextRowBoxes.forEach(box => {
+                box.classList.remove('locked');
+            });
+        }
     });
 });
